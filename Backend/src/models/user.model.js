@@ -3,9 +3,9 @@ import sequelize from "../db.js";
 
 const User = sequelize.define("User", {
     id: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.UUID,
         primaryKey: true,
-        autoIncrement: true
+        defaultValue: DataTypes.UUIDV4,
     },
     name: {
         type: DataTypes.STRING,
@@ -16,7 +16,7 @@ const User = sequelize.define("User", {
         unique: true,
         allowNull: false,
     },
-    password_hash: {
+    hash_password: {
         type: DataTypes.STRING,
         allowNull:false
     },
